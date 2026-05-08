@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media — Dendro</title>
+  <meta name="description" content="Watch Dendro in action — product demo and pitch presentations." />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .page-hero {
+      padding-top: 160px;
+      padding-bottom: var(--space-3xl);
+      border-bottom: 1px solid var(--c-border-sub);
+    }
+
+    /* Video cards */
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+    .video-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      transition: border-color var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+    }
+    .video-card:hover { border-color: var(--c-green-muted); transform: translateY(-2px); }
+    .video-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .video-embed-wrap {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: var(--c-bg);
+      overflow: hidden;
+    }
+    .video-embed-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-card.featured .video-embed-wrap {
+      aspect-ratio: unset;
+      height: 100%;
+      min-height: 280px;
+    }
+    .video-card-body {
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .video-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: var(--r-full);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+      width: fit-content;
+    }
+    .video-tag.demo {
+      background: rgba(168,224,99,0.1);
+      color: var(--c-green);
+      border: 1px solid rgba(168,224,99,0.2);
+    }
+    .video-tag.pitch {
+      background: rgba(168,130,50,0.1);
+      color: #e0a063;
+      border: 1px solid rgba(168,130,50,0.2);
+    }
+    .video-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .video-desc {
+      font-size: 0.9rem;
+      color: var(--c-text-sub);
+      line-height: 1.6;
+      margin-bottom: var(--space-md);
+    }
+    .video-meta {
+      font-size: 0.78rem;
+      color: var(--c-text-dim);
+    }
+
+    /* Placeholder state for videos without embed src */
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--c-bg2);
+      color: var(--c-text-dim);
+    }
+    .play-btn {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      border: 1px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-green);
+      transition: background var(--t-fast), border-color var(--t-fast);
+    }
+    .video-card:hover .play-btn {
+      background: rgba(168,224,99,0.1);
+      border-color: var(--c-green-muted);
+    }
+
+    /* Section label */
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: var(--space-md);
+    }
+    .eyebrow-line { width: 24px; height: 1px; background: var(--c-green); }
+
+    @media (max-width: 900px) {
+      .videos-grid { grid-template-columns: 1fr; }
+      .video-card.featured { grid-column: unset; grid-template-columns: 1fr; }
+      .video-card.featured .video-embed-wrap { aspect-ratio: 16/9; height: auto; min-height: unset; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<div class="nav-wrapper" id="navWrapper">
+  <nav class="nav container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Dendro logo" />
+      <span class="nav-logo-text">Dendro</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="media.html" class="active">Media</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a href="https://app.dendroeducation.com" class="btn btn-secondary" style="padding:9px 20px; font-size:0.85rem;" target="_blank" rel="noopener">App ↗</a>
+      <a href="contact.html" class="btn btn-primary" style="padding:9px 20px; font-size:0.85rem;">Get in touch</a>
+    </div>
+  </nav>
+</div>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <div style="max-width:560px;">
+      <div class="section-eyebrow anim-fade-up">
+        <span class="eyebrow-line"></span>
+        <span class="t-label t-green">Media</span>
+      </div>
+      <h1 class="t-display anim-fade-up anim-delay-1" style="margin-bottom:var(--space-md);">See Dendro in action.</h1>
+      <p class="t-body-lg t-sub anim-fade-up anim-delay-2">Watch the product demo and see how we presented Dendro at the Brown Venture Prize — one of the leading student entrepreneurship competitions.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Videos -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="t-label t-green">Videos</span>
+    </div>
+
+    <div class="videos-grid">
+
+      <!-- Featured: Product Demo -->
+      <div class="video-card featured">
+        <div class="video-embed-wrap">
+          <!-- Replace VIDEO_ID with actual YouTube embed ID when available -->
+          <div class="video-placeholder">
+            <div class="play-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <span class="t-small" style="color:var(--c-text-dim);">Product Demo</span>
+          </div>
+        </div>
+        <div class="video-card-body">
+          <span class="video-tag demo">Product Demo</span>
+          <div class="video-title">Dendro in Action</div>
+          <p class="video-desc">A walkthrough of the full Dendro platform — from lecture upload to trainee study experience. See how a residency program puts it to work in under five minutes.</p>
+          <p class="video-meta">Full product walkthrough · 2025</p>
+        </div>
+      </div>
+
+      <!-- BVP Pitch -->
+      <div class="video-card">
+        <div class="video-embed-wrap">
+          <div class="video-placeholder">
+            <div class="play-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <span class="t-small" style="color:var(--c-text-dim);">BVP Pitch</span>
+          </div>
+        </div>
+        <div class="video-card-body">
+          <span class="video-tag pitch">Pitch</span>
+          <div class="video-title">Brown Venture Prize 2025</div>
+          <p class="video-desc">The pitch that introduced Dendro to the world. Watch the full presentation from March 2025 at Brown University's flagship entrepreneurship competition.</p>
+          <p class="video-meta">Brown Venture Prize · March 2025</p>
+        </div>
+      </div>
+
+      <!-- Placeholder for future media -->
+      <div class="video-card" style="display:flex; align-items:center; justify-content:center; padding:var(--space-xl); text-align:center; border-style:dashed; min-height:200px;">
+        <div>
+          <div style="font-size:1.5rem; margin-bottom:12px; color:var(--c-text-dim);">+</div>
+          <div class="t-small t-sub" style="font-weight:600;">More media coming soon</div>
+          <p class="t-small t-dim" style="margin-top:4px;">Press coverage, conference talks, and case studies</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CTA -->
+<section class="section-sm">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-lg); flex-wrap:wrap;">
+    <div>
+      <h3 class="t-title" style="margin-bottom:6px;">Want a live demo for your program?</h3>
+      <p class="t-body t-sub">We'll walk you through the full platform and answer any questions.</p>
+    </div>
+    <a href="contact.html" class="btn btn-primary btn-lg">Request a Demo</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="nav-logo">
+        <img src="assets/logo.png" alt="Dendro" style="width:22px; opacity:0.7;" />
+        <span class="nav-logo-text" style="font-size:1rem; color:var(--c-text-sub);">Dendro</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="t-small t-dim">© 2025 Dendro Education LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navWrapper');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
+</body>
+</html>

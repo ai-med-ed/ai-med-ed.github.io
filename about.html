@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Dendro</title>
+  <meta name="description" content="Meet the team behind Dendro — medical trainees and engineers building better learning tools for residency programs and health systems." />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .page-hero {
+      padding-top: 160px;
+      padding-bottom: var(--space-3xl);
+      border-bottom: 1px solid var(--c-border-sub);
+    }
+    .page-hero-inner {
+      max-width: 680px;
+    }
+
+    /* Team */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+    }
+    .team-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      transition: border-color var(--t-base) var(--ease);
+    }
+    .team-card:hover { border-color: var(--c-green-muted); }
+    .team-card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: top center;
+      background: var(--c-bg3);
+      display: block;
+    }
+    .team-card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--c-bg3) 0%, var(--c-surface) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--c-text-dim);
+    }
+    .team-card-body {
+      padding: var(--space-lg);
+    }
+    .team-role {
+      font-size: 0.78rem;
+      color: var(--c-green);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .team-name {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .team-bio {
+      font-size: 0.9rem;
+      color: var(--c-text-sub);
+      line-height: 1.65;
+      margin-bottom: var(--space-md);
+    }
+    .team-contact {
+      font-size: 0.82rem;
+      color: var(--c-text-dim);
+      transition: color var(--t-fast);
+    }
+    .team-contact:hover { color: var(--c-green); }
+
+    /* Mission block */
+    .mission-block {
+      background: var(--c-bg2);
+      border: 1px solid var(--c-border-sub);
+      border-radius: var(--r-xl);
+      padding: var(--space-xl) var(--space-xl);
+      position: relative;
+      overflow: hidden;
+    }
+    .mission-block::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(ellipse, rgba(168,224,99,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .mission-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      max-width: 680px;
+      margin-bottom: var(--space-lg);
+    }
+    .mission-quote em {
+      font-style: normal;
+      color: var(--c-green);
+    }
+
+    /* Founding members (eng/design) */
+    .founders-sub-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+    .founder-sub-card {
+      background: var(--c-bg2);
+      border: 1px solid var(--c-border-sub);
+      border-radius: var(--r-lg);
+      padding: var(--space-lg);
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      transition: border-color var(--t-base) var(--ease);
+    }
+    .founder-sub-card:hover { border-color: var(--c-border); }
+    .founder-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    /* Section label */
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: var(--space-md);
+    }
+    .eyebrow-line {
+      width: 24px; height: 1px;
+      background: var(--c-green);
+    }
+
+    @media (max-width: 768px) {
+      .team-grid         { grid-template-columns: 1fr; }
+      .founders-sub-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<div class="nav-wrapper" id="navWrapper">
+  <nav class="nav container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Dendro logo" />
+      <span class="nav-logo-text">Dendro</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a href="https://app.dendroeducation.com" class="btn btn-secondary" style="padding:9px 20px; font-size:0.85rem;" target="_blank" rel="noopener">App ↗</a>
+      <a href="contact.html" class="btn btn-primary" style="padding:9px 20px; font-size:0.85rem;">Get in touch</a>
+    </div>
+  </nav>
+</div>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="section-eyebrow anim-fade-up">
+        <span class="eyebrow-line"></span>
+        <span class="t-label t-green">The team</span>
+      </div>
+      <h1 class="t-display anim-fade-up anim-delay-1" style="margin-bottom: var(--space-md);">Built by clinicians,<br/>for clinicians.</h1>
+      <p class="t-body-lg t-sub anim-fade-up anim-delay-2">We're medical trainees who lived the problem firsthand — hours of lectures, not enough time to study, and no good way to retain it all. Dendro is what we wished we had.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Mission -->
+<section class="section-sm">
+  <div class="container">
+    <div class="mission-block">
+      <p class="mission-quote">"Medical trainees are <em>incredibly busy</em>. The tools they have don't respect that. We built Dendro to make every minute of study count."</p>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="width:32px; height:32px; border-radius:50%; background:var(--c-surface); border:1px solid var(--c-border); display:flex; align-items:center; justify-content:center; font-size:0.85rem; color:var(--c-text-dim);">JK</div>
+        <div>
+          <div class="t-small" style="font-weight:600;">Jay Khurana, MD</div>
+          <div class="t-small t-dim">Co-founder, Dendro</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Co-founders -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="t-label t-green">Co-founders</span>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <img
+          class="team-card-img"
+          src="https://images.squarespace-cdn.com/content/v1/6826a668c4f06902762043ed/af5a52e4-b48e-4e4b-b412-e469abbbf961/jay_khurana.png"
+          alt="Jay Khurana"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="team-card-img-placeholder" style="display:none;">👨‍⚕️</div>
+        <div class="team-card-body">
+          <div class="team-role">Co-founder &amp; CEO</div>
+          <div class="team-name">Jay Khurana, MD</div>
+          <p class="team-bio">Resident Physician at Yale (Neurology). Graduated from Brown Medical School May 2025. Former machine learning software engineer at PathAI. President, Brown Alumni Entrepreneurship Group.</p>
+          <a href="mailto:jay_khurana@brown.edu" class="team-contact">jay_khurana@brown.edu</a>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <img
+          class="team-card-img"
+          src="https://images.squarespace-cdn.com/content/v1/6826a668c4f06902762043ed/ad09489d-f383-45b7-8dd9-c7dcb61ad487/HossamZaki_MG_9192_1-ezgif.com-webp-to-jpg-converter.jpg"
+          alt="Hossam Zaki"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="team-card-img-placeholder" style="display:none;">👨‍⚕️</div>
+        <div class="team-card-body">
+          <div class="team-role">Co-founder</div>
+          <div class="team-name">Hossam Zaki</div>
+          <p class="team-bio">MD Candidate at Brown Medical School (2026). Aspiring interventional radiologist. Published medical AI research with Harvard Medical School and UCSF. Goldwater Scholar.</p>
+          <a href="mailto:hossam_zaki@brown.edu" class="team-contact">hossam_zaki@brown.edu</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Founding team -->
+    <div style="margin-top: var(--space-xl);">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="t-label t-green">Founding team</span>
+      </div>
+      <div class="founders-sub-grid">
+
+        <div class="founder-sub-card">
+          <div class="founder-avatar">🎨</div>
+          <div>
+            <div class="team-role" style="margin-bottom:4px;">Founding Designer</div>
+            <div class="team-name" style="font-size:1.05rem; margin-bottom:6px;">Sulan Zhang</div>
+            <p class="t-small t-sub">Visual Arts + CS-Economics at Brown University. Shapes the visual identity and user experience of the Dendro platform.</p>
+          </div>
+        </div>
+
+        <div class="founder-sub-card">
+          <div class="founder-avatar">⚙️</div>
+          <div>
+            <div class="team-role" style="margin-bottom:4px;">Founding Engineer</div>
+            <div class="team-name" style="font-size:1.05rem; margin-bottom:6px;">Usman Khan</div>
+            <p class="t-small t-sub">Former Software Engineer at CloudiDR and ABEware Solutions. Builds and scales the Dendro platform infrastructure.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CTA -->
+<section class="section-sm">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-lg); flex-wrap:wrap;">
+    <div>
+      <h3 class="t-title" style="margin-bottom:6px;">Interested in bringing Dendro to your program?</h3>
+      <p class="t-body t-sub">We'd love to show you what we've built.</p>
+    </div>
+    <a href="contact.html" class="btn btn-primary btn-lg">Request a Demo</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="nav-logo">
+        <img src="assets/logo.png" alt="Dendro" style="width:22px; opacity:0.7;" />
+        <span class="nav-logo-text" style="font-size:1rem; color:var(--c-text-sub);">Dendro</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="t-small t-dim">© 2025 Dendro Education LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navWrapper');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
+</body>
+</html>
