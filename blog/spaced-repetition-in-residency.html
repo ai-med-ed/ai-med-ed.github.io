@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why spaced repetition wins in residency — Dendro</title>
+  <meta name="description" content="The forgetting curve doesn't care how busy you are. Why spacing and retrieval practice beat re-reading — and how that shaped the way Dendro schedules review.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dendroeducation.com/blog/spaced-repetition-in-residency.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Dendro">
+  <meta property="og:title" content="Why spaced repetition wins in residency">
+  <meta property="og:description" content="The forgetting curve doesn't care how busy you are. Why spacing and retrieval practice beat re-reading.">
+  <meta property="og:url" content="https://dendroeducation.com/blog/spaced-repetition-in-residency.html">
+  <meta property="og:image" content="https://dendroeducation.com/assets/logo.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="2026-07-14">
+  <meta property="article:author" content="Hossam Zaki">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Why spaced repetition wins in residency">
+  <meta name="twitter:description" content="The forgetting curve doesn't care how busy you are. Why spacing and retrieval practice beat re-reading.">
+  <meta name="twitter:image" content="https://dendroeducation.com/assets/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/logo.png">
+  <link rel="apple-touch-icon" href="../assets/logo.png">
+  <link rel="shortcut icon" href="../assets/logo.png">
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <style>
+    /* ── Article layout ── */
+    .article-hero {
+      padding-top: 150px;
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid var(--c-border-sub);
+    }
+    .article-wrap { max-width: 720px; margin: 0 auto; }
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--c-text-sub);
+      margin-bottom: var(--space-lg);
+      transition: color var(--t-fast), gap var(--t-fast) var(--ease);
+    }
+    .article-back:hover { color: var(--c-green); gap: 10px; }
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: var(--r-full);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+      background: rgba(168,224,99,0.1);
+      color: var(--c-green);
+      border: 1px solid rgba(168,224,99,0.2);
+    }
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-lg);
+    }
+    .article-byline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .article-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--c-text-sub);
+      flex-shrink: 0;
+    }
+    .article-byline-name { font-size: 0.9rem; font-weight: 600; }
+    .article-byline-meta { font-size: 0.8rem; color: var(--c-text-dim); }
+
+    /* ── Article body ── */
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: var(--space-xl) 0 var(--space-3xl);
+    }
+    .article-body > * + * { margin-top: var(--space-md); }
+    .article-body p {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--c-text);
+      font-weight: 300;
+    }
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-sm);
+    }
+    .article-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: var(--space-lg);
+    }
+    .article-body ul, .article-body ol {
+      padding-left: 1.4em;
+      color: var(--c-text);
+      font-weight: 300;
+    }
+    .article-body li {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      margin-top: var(--space-xs);
+    }
+    .article-body li::marker { color: var(--c-green-dim); }
+    .article-body strong { color: var(--c-text); font-weight: 600; }
+    .article-body a { color: var(--c-green); text-decoration: underline; text-underline-offset: 3px; }
+    .article-body blockquote {
+      border-left: 2px solid var(--c-green-muted);
+      padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+      margin-top: var(--space-lg);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      color: var(--c-text);
+    }
+    .article-lede {
+      font-size: 1.2rem !important;
+      line-height: 1.7 !important;
+      color: var(--c-text-sub) !important;
+      font-weight: 300;
+    }
+
+    /* ── Article CTA / next ── */
+    .article-cta {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--c-bg2);
+      border: 1px solid var(--c-border-sub);
+      border-radius: var(--r-xl);
+      padding: var(--space-xl);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .article-body p, .article-body li { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<div class="nav-wrapper" id="navWrapper">
+  <nav class="nav container">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/logo.png" alt="Dendro logo" />
+      <span class="nav-logo-text">Dendro</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../media.html">Media</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a href="https://app.dendroeducation.com" class="btn btn-secondary" style="padding:9px 20px; font-size:0.85rem;" target="_blank" rel="noopener">App ↗</a>
+      <a href="../contact.html" class="btn btn-primary" style="padding:9px 20px; font-size:0.85rem;">Get in touch</a>
+    </div>
+  </nav>
+</div>
+
+<!-- Article hero -->
+<div class="article-hero">
+  <div class="container">
+    <div class="article-wrap">
+      <a href="../blog.html" class="article-back">← Back to blog</a>
+      <span class="article-tag">Learning science</span>
+      <h1 class="article-title">Why spaced repetition wins in residency</h1>
+      <div class="article-byline">
+        <div class="article-avatar">HZ</div>
+        <div>
+          <div class="article-byline-name">Hossam Zaki, MD</div>
+          <div class="article-byline-meta">Co-founder · Jul 14, 2026 · 6 min read</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Article body -->
+<article class="container">
+  <div class="article-body">
+    <p class="article-lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+
+    <h2>Lorem ipsum dolor sit amet</h2>
+    <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+
+    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+
+    <blockquote>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</blockquote>
+
+    <h2>Consectetur adipiscing elit</h2>
+    <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. At vero eos et accusamus et iusto odio dignissimos ducimus.</p>
+    <ul>
+      <li><strong>Sed ut perspiciatis.</strong> Unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa.</li>
+      <li><strong>Nemo enim ipsam.</strong> Voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.</li>
+      <li><strong>Neque porro quisquam.</strong> Est qui dolorem ipsum quia dolor sit amet, consectetur adipisci velit sed quia non numquam.</li>
+      <li><strong>Quis autem vel.</strong> Eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</li>
+    </ul>
+
+    <h2>Excepteur sint occaecat</h2>
+    <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+
+    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+  </div>
+</article>
+
+<!-- Article CTA -->
+<section class="section-sm">
+  <div class="container">
+    <div class="article-cta">
+      <h3 class="t-title" style="margin-bottom:8px;">Give your residents time back</h3>
+      <p class="t-body t-sub" style="margin-bottom:var(--space-lg);">See how Dendro puts spaced retrieval to work on your own material.</p>
+      <a href="../contact.html" class="btn btn-primary btn-lg">Request a Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="nav-logo">
+        <img src="../assets/logo.png" alt="Dendro" style="width:22px; opacity:0.7;" />
+        <span class="nav-logo-text" style="font-size:1rem; color:var(--c-text-sub);">Dendro</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../media.html">Media</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <p class="t-small t-dim">© 2025 Dendro Education LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navWrapper');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
+</body>
+</html>

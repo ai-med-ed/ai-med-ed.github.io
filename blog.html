@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Dendro</title>
+  <meta name="description" content="Notes from the Dendro team on AI-powered medical education, spaced repetition, and what we're learning building study tools for residents.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dendroeducation.com/blog.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dendro">
+  <meta property="og:title" content="Blog — Dendro">
+  <meta property="og:description" content="Notes from the Dendro team on AI-powered medical education, spaced repetition, and what we're learning building study tools for residents.">
+  <meta property="og:url" content="https://dendroeducation.com/blog.html">
+  <meta property="og:image" content="https://dendroeducation.com/assets/logo.png">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Blog — Dendro">
+  <meta name="twitter:description" content="Notes from the Dendro team on AI-powered medical education, spaced repetition, and what we're learning building study tools for residents.">
+  <meta name="twitter:image" content="https://dendroeducation.com/assets/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="shortcut icon" href="assets/logo.png">
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .page-hero {
+      padding-top: 160px;
+      padding-bottom: var(--space-3xl);
+      border-bottom: 1px solid var(--c-border-sub);
+    }
+    .page-hero-inner {
+      max-width: 680px;
+    }
+
+    /* Post grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+    .blog-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      transition: border-color var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      border-color: var(--c-green-muted);
+      transform: translateY(-2px);
+    }
+    .blog-card-thumb {
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, var(--c-bg3) 0%, var(--c-surface) 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--c-border-sub);
+    }
+    .blog-card-thumb::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(ellipse, rgba(168,224,99,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .blog-card-thumb-icon {
+      font-size: 2.4rem;
+      opacity: 0.9;
+    }
+    .blog-card-body {
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .blog-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: var(--r-full);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+      width: fit-content;
+      background: rgba(168,224,99,0.1);
+      color: var(--c-green);
+      border: 1px solid rgba(168,224,99,0.2);
+    }
+    .blog-card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .blog-card-excerpt {
+      font-size: 0.9rem;
+      color: var(--c-text-sub);
+      line-height: 1.6;
+      margin-bottom: var(--space-md);
+    }
+    .blog-card-meta {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--c-text-dim);
+    }
+    .blog-card-meta .dot { color: var(--c-border); }
+    .blog-card-readmore {
+      margin-top: var(--space-md);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--c-green);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap var(--t-fast) var(--ease);
+    }
+    .blog-card:hover .blog-card-readmore { gap: 10px; }
+
+    /* Section label */
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: var(--space-md);
+    }
+    .eyebrow-line {
+      width: 24px; height: 1px;
+      background: var(--c-green);
+    }
+
+    @media (max-width: 900px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<div class="nav-wrapper" id="navWrapper">
+  <nav class="nav container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Dendro logo" />
+      <span class="nav-logo-text">Dendro</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a href="https://app.dendroeducation.com" class="btn btn-secondary" style="padding:9px 20px; font-size:0.85rem;" target="_blank" rel="noopener">App ↗</a>
+      <a href="contact.html" class="btn btn-primary" style="padding:9px 20px; font-size:0.85rem;">Get in touch</a>
+    </div>
+  </nav>
+</div>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="section-eyebrow anim-fade-up">
+        <span class="eyebrow-line"></span>
+        <span class="t-label t-green">The blog</span>
+      </div>
+      <h1 class="t-display anim-fade-up anim-delay-1" style="margin-bottom: var(--space-md);">Notes from<br/>the team.</h1>
+      <p class="t-body-lg t-sub anim-fade-up anim-delay-2">What we're learning building AI study tools for residents — on medical education, spaced repetition, and turning the flood of lectures into focused, board-ready practice.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Recent posts -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="t-label t-green">Recent posts</span>
+    </div>
+    <div class="blog-grid">
+
+      <div class="blog-card" style="cursor:pointer;" onclick="window.location.href='blog/lectures-to-board-ready.html'">
+        <div class="blog-card-thumb"><span class="blog-card-thumb-icon">📚</span></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Product</span>
+          <div class="blog-card-title">Turning a wall of lectures into board-ready study material</div>
+          <p class="blog-card-excerpt">Residents don't need more content — they need the right content, in the right format, at the right time. Here's how Dendro turns hours of recorded lectures into structured questions.</p>
+          <div class="blog-card-meta">
+            <span>Jay Khurana, MD</span>
+            <span class="dot">·</span>
+            <span>Jul 28, 2026</span>
+          </div>
+          <span class="blog-card-readmore">Read article →</span>
+        </div>
+      </div>
+
+      <div class="blog-card" style="cursor:pointer;" onclick="window.location.href='blog/spaced-repetition-in-residency.html'">
+        <div class="blog-card-thumb"><span class="blog-card-thumb-icon">🔁</span></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Learning science</span>
+          <div class="blog-card-title">Why spaced repetition wins in residency</div>
+          <p class="blog-card-excerpt">The forgetting curve doesn't care how busy you are. We dig into why spacing and retrieval practice beat re-reading — and how that shaped the way Dendro schedules review.</p>
+          <div class="blog-card-meta">
+            <span>Hossam Zaki, MD</span>
+            <span class="dot">·</span>
+            <span>Jul 14, 2026</span>
+          </div>
+          <span class="blog-card-readmore">Read article →</span>
+        </div>
+      </div>
+
+      <div class="blog-card" style="cursor:pointer;" onclick="window.location.href='blog/what-we-learned-from-our-rct.html'">
+        <div class="blog-card-thumb"><span class="blog-card-thumb-icon">🧪</span></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Research</span>
+          <div class="blog-card-title">What we learned running a randomized trial in a neurology program</div>
+          <p class="blog-card-excerpt">We didn't want to claim Dendro works — we wanted to measure it. Notes from designing and running a randomized controlled trial of AI-generated study material with residents.</p>
+          <div class="blog-card-meta">
+            <span>Hossam Zaki, MD</span>
+            <span class="dot">·</span>
+            <span>Jun 30, 2026</span>
+          </div>
+          <span class="blog-card-readmore">Read article →</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CTA -->
+<section class="section-sm">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-lg); flex-wrap:wrap;">
+    <div>
+      <h3 class="t-title" style="margin-bottom:6px;">Interested in bringing Dendro to your program?</h3>
+      <p class="t-body t-sub">We'd love to show you what we've built.</p>
+    </div>
+    <a href="contact.html" class="btn btn-primary btn-lg">Request a Demo</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="nav-logo">
+        <img src="assets/logo.png" alt="Dendro" style="width:22px; opacity:0.7;" />
+        <span class="nav-logo-text" style="font-size:1rem; color:var(--c-text-sub);">Dendro</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="t-small t-dim">© 2025 Dendro Education LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navWrapper');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
+</body>
+</html>
