@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Is AI Deskilling the Next Generation of Doctors? — Dendro</title>
+  <meta name="description" content="Deskilling is one of the most discussed objections to AI in medical education. The concern is legitimate — but the more useful question is about substitution, not AI itself.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dendroeducation.com/blog/deskilling.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Dendro">
+  <meta property="og:title" content="Is AI Deskilling the Next Generation of Doctors?">
+  <meta property="og:description" content="Deskilling is one of the most discussed objections to AI in medical education. The concern is legitimate — but the more useful question is about substitution, not AI itself.">
+  <meta property="og:url" content="https://dendroeducation.com/blog/deskilling.html">
+  <meta property="og:image" content="https://dendroeducation.com/assets/logo.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="2026-08-15">
+  <meta property="article:author" content="Dendro">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Is AI Deskilling the Next Generation of Doctors?">
+  <meta name="twitter:description" content="Deskilling is one of the most discussed objections to AI in medical education. The concern is legitimate — but the more useful question is about substitution, not AI itself.">
+  <meta name="twitter:image" content="https://dendroeducation.com/assets/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/logo.png">
+  <link rel="apple-touch-icon" href="../assets/logo.png">
+  <link rel="shortcut icon" href="../assets/logo.png">
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <style>
+    /* ── Article layout ── */
+    .article-hero {
+      padding-top: 150px;
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid var(--c-border-sub);
+    }
+    .article-wrap { max-width: 720px; margin: 0 auto; }
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--c-text-sub);
+      margin-bottom: var(--space-lg);
+      transition: color var(--t-fast), gap var(--t-fast) var(--ease);
+    }
+    .article-back:hover { color: var(--c-green); gap: 10px; }
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: var(--r-full);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+      background: rgba(168,224,99,0.1);
+      color: var(--c-green);
+      border: 1px solid rgba(168,224,99,0.2);
+    }
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-lg);
+    }
+    .article-byline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .article-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--c-text-sub);
+      flex-shrink: 0;
+    }
+    .article-byline-name { font-size: 0.9rem; font-weight: 600; }
+    .article-byline-meta { font-size: 0.8rem; color: var(--c-text-dim); }
+
+    /* ── Article body ── */
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: var(--space-xl) 0 var(--space-3xl);
+    }
+    .article-body > * + * { margin-top: var(--space-md); }
+    .article-body p {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--c-text);
+      font-weight: 300;
+    }
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-sm);
+    }
+    .article-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: var(--space-lg);
+    }
+    .article-body ul, .article-body ol {
+      padding-left: 1.4em;
+      color: var(--c-text);
+      font-weight: 300;
+    }
+    .article-body li {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      margin-top: var(--space-xs);
+    }
+    .article-body li::marker { color: var(--c-green-dim); }
+    .article-body strong { color: var(--c-text); font-weight: 600; }
+    .article-body a { color: var(--c-green); text-decoration: underline; text-underline-offset: 3px; }
+    .article-body blockquote {
+      border-left: 2px solid var(--c-green-muted);
+      padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+      margin-top: var(--space-lg);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      color: var(--c-text);
+    }
+    .article-lede {
+      font-size: 1.2rem !important;
+      line-height: 1.7 !important;
+      color: var(--c-text-sub) !important;
+      font-weight: 300;
+    }
+    .article-endnote {
+      margin-top: var(--space-xl);
+      padding: var(--space-lg);
+      background: var(--c-bg2);
+      border: 1px solid var(--c-border-sub);
+      border-radius: var(--r-lg);
+    }
+    .article-endnote p {
+      font-size: 0.95rem !important;
+      font-style: italic;
+      color: var(--c-text-sub) !important;
+      line-height: 1.7;
+    }
+
+    /* ── Article CTA / next ── */
+    .article-cta {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--c-bg2);
+      border: 1px solid var(--c-border-sub);
+      border-radius: var(--r-xl);
+      padding: var(--space-xl);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .article-body p, .article-body li { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<div class="nav-wrapper" id="navWrapper">
+  <nav class="nav container">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/logo.png" alt="Dendro logo" />
+      <span class="nav-logo-text">Dendro</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../media.html">Media</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a href="https://app.dendroeducation.com" class="btn btn-secondary" style="padding:9px 20px; font-size:0.85rem;" target="_blank" rel="noopener">App ↗</a>
+      <a href="../contact.html" class="btn btn-primary" style="padding:9px 20px; font-size:0.85rem;">Get in touch</a>
+    </div>
+  </nav>
+</div>
+
+<!-- Article hero -->
+<div class="article-hero">
+  <div class="container">
+    <div class="article-wrap">
+      <a href="../blog.html" class="article-back">← Back to blog</a>
+      <span class="article-tag">Thought leadership</span>
+      <h1 class="article-title">Is AI deskilling the next generation of doctors?</h1>
+      <div class="article-byline">
+        <div class="article-avatar">D</div>
+        <div>
+          <div class="article-byline-name">The Dendro Team</div>
+          <div class="article-byline-meta">Aug 15, 2026 · 8 min read</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Article body -->
+<article class="container">
+  <div class="article-body">
+    <p class="article-lede">Anyone who trains or teaches the physicians of tomorrow always has one lingering thought when thinking about AI: "Will the physicians I am training take the easy path and have AI answer their questions instantaneously, or will they work through the question to build the reasoning behind the answer?"</p>
+
+    <p>This is the question of deskilling, broadly described as the way specialized skills, training or professional judgment can be shaped by automation or artificial intelligence. The concern deserves genuine consideration rather than a quick answer in either direction, and the available evidence points toward a measured position rather than an extreme one.</p>
+
+    <p>Deskilling is among the most discussed objections to AI in medical education. The concern is legitimate, and the evidence is still early.</p>
+
+    <h2>The case for taking deskilling seriously</h2>
+    <p>There is early evidence of a measurable deskilling effect in adjacent clinical settings, where clinicians' unassisted performance dropped after an AI tool was withdrawn (<a href="https://link.springer.com/article/10.1007/s11606-025-10149-w" target="_blank" rel="noopener">JGIM, 2025</a>). The trainees most exposed are those whose clinical reasoning skills are still forming and who may not yet have built an unassisted baseline in the first place. Researchers even have a name for that second half: upskilling inhibition, the pattern of never acquiring a skill because AI completed the repetition a trainee would otherwise have practiced (<a href="https://www.sciencedirect.com/science/article/pii/S2949820126000123" target="_blank" rel="noopener">ScienceDirect, 2026</a>).</p>
+
+    <p>A 2025 viewpoint puts the mechanism plainly. Generative AI can act as a cognitive enhancer, or it can contribute to overreliance, passivity and susceptibility to misinformation. Which one a trainee experiences depends almost entirely on how the tool is used, not on the model itself, and that distinction tends to be the more consistent finding across the literature (<a href="https://doi.org/10.2196/76340" target="_blank" rel="noopener">Izquierdo-Condoy et al., 2025</a>).</p>
+
+    <p>Medical training has always worked by having people do hard cognitive work before they are fully skilled at it, thus resulting in a messy differential: a summary that forces a decision about what matters. Retrieval and effortful recall are how knowledge sticks, a principle learning scientists call test-enhanced learning (<a href="https://doi.org/10.1007/s10459-012-9379-7" target="_blank" rel="noopener">Larsen et al., 2012</a>; <a href="https://doi.org/10.3390/bs15070974" target="_blank" rel="noopener">Serra et al., 2025</a>). A tool that removes the effort can, in principle, reduce the learning that comes with it. A majority of trainees already use general-purpose AI chatbots, conversational tools such as ChatGPT that respond to open-ended prompts, for coursework, and they name misinformation as their own top concern while doing it (<a href="https://doi.org/10.1186/s12909-025-07438-7" target="_blank" rel="noopener">Hu et al., 2025</a>). That level of everyday adoption is one reason researchers increasingly favor engagement over avoidance (<a href="https://doi.org/10.1186/s12909-025-07438-7" target="_blank" rel="noopener">Hu et al., 2025</a>).</p>
+
+    <h2>Weighing restriction against engagement</h2>
+    <p>The response the concern seems to imply, keeping AI away from trainees, does not necessarily follow, for two reasons.</p>
+
+    <p>First, the evidence is genuinely early. Much of it is drawn from related fields, and researchers are only now running the studies that would measure cognitive effort directly. Some of those studies use eye tracking and brain imaging to see whether AI use raises or lowers the mental work a trainee actually does (<a href="https://doi.org/10.1186/s13063-025-08950-3" target="_blank" rel="noopener">Chen et al., 2025</a>). Restricting a tool based on a hypothesis, while trainees already use similar tools unsupervised, offers less protection than it may appear to. It tends to defer, rather than remove, the need to build guidance around AI use.</p>
+
+    <p>Second, and this is the part that a framing built strictly around being for or against AI tends to miss, the more useful factor is not AI itself. It is substitution. Deskilling tends to happen when AI does the cognitive work instead of the trainee. It tends not to happen when AI is arranged so the trainee still has to do the work. Those are different designs, and treating them as interchangeable is part of what keeps the conversation circling without resolution.</p>
+
+    <p>That reframe tends to be useful, according to research on how AI should be supervised in clinical training (<a href="https://www.nejm.org/doi/full/10.1056/NEJMra2503232" target="_blank" rel="noopener">NEJM, 2025</a>). It turns the question in front of program directors away from the open-ended "should trainees use AI" and toward the practical "how should AI be brought into medical education so it adds cognitive work rather than removing it." That is a question medical educators are already well positioned to answer, and one at the center of responsible AI adoption in medical training.</p>
+
+    <h2>A useful distinction: augment versus substitute</h2>
+    <p>The most cited framing comes from a 2025 review on the clinical supervision of AI: treat AI output as a draft to question, not a conclusion to accept, and build that habit explicitly into how trainees are taught (<a href="https://www.nejm.org/doi/full/10.1056/NEJMra2503232" target="_blank" rel="noopener">NEJM, 2025</a>). The same review also notes a related point. Trainees are often more fluent with these tools than the educators supervising them, which shifts who is best positioned to model that discipline (<a href="https://www.nejm.org/doi/full/10.1056/NEJMra2503232" target="_blank" rel="noopener">NEJM, 2025</a>).</p>
+
+    <p>That gives educators a practical, structured test to apply to any AI tool, product or workflow that touches trainees. Three questions do most of the work:</p>
+    <ul>
+      <li><strong>Does the tool do the thinking, or help the trainee do it?</strong> A tool that hands over a polished answer leans toward substitution, while a tool that has the trainee retrieve, commit to an answer and justify it supports the cognitive work that builds skill.</li>
+      <li><strong>Is its output reviewed, or taken on faith?</strong> Unreviewed AI output can train a trainee to trust fluency over accuracy, an instinct that research on AI supervision cautions against for physicians (<a href="https://www.nejm.org/doi/full/10.1056/NEJMra2503232" target="_blank" rel="noopener">NEJM, 2025</a>).</li>
+      <li><strong>Does it replace a repetition, or add one?</strong> Asking a chatbot for the answer removes a repetition, while a thoughtfully designed quiz adds one.</li>
+    </ul>
+
+    <p>By that test, a chatbot that writes the note for a trainee sits closer to the substitution end of the spectrum. So does a summary a trainee reads passively and forgets. A spaced set of questions that has a trainee recall and defend an answer sits closer to the augmentation end. That is retrieval practice, one of the most evidence-backed learning tools available to medical education (<a href="https://doi.org/10.3390/bs15070974" target="_blank" rel="noopener">Serra et al., 2025</a>).</p>
+
+    <blockquote>Framed this way, AI in medical education becomes less a risk to manage and more a design choice.</blockquote>
+
+    <p>AI-powered learning tools that ask more of trainees, not less, tend to be the ones favored by evidence-based buyers in graduate medical education evaluating AI-powered learning platforms.</p>
+
+    <h2>Turning concern into a standard</h2>
+    <p>Whether trainees should use AI is no longer the most useful framing, since most already do, often through general-purpose chatbots with far less structure than platforms built specifically for medical education offer. The question worth a program director's attention is narrower and more answerable: is the AI in a given program helping trainees think more, or think less? Answering that honestly, tool by tool, tends to move the conversation from a general concern toward a workable standard for responsible AI adoption in medical training, one grounded in clinical reasoning, AI competencies for medical education and the kind of trusted guidance, backed by solid evidence, that both trainees and AI search engines increasingly reward.</p>
+
+    <div class="article-endnote">
+      <p>Dendro is an ambient AI platform for medical education, built and backed by physicians and providers rather than a general technology team. It converts lectures, grand rounds and case conferences into structured summaries, exam-style questions and flashcards without requiring educators to change how they already teach, and early research shows improved trainee performance across residency and clerkship programs at academic medical centers nationwide.</p>
+    </div>
+  </div>
+</article>
+
+<!-- Article CTA -->
+<section class="section-sm">
+  <div class="container">
+    <div class="article-cta">
+      <h3 class="t-title" style="margin-bottom:8px;">AI that asks more of your trainees, not less</h3>
+      <p class="t-body t-sub" style="margin-bottom:var(--space-lg);">See how Dendro is designed to add cognitive work rather than remove it.</p>
+      <a href="../contact.html" class="btn btn-primary btn-lg">Request a Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="nav-logo">
+        <img src="../assets/logo.png" alt="Dendro" style="width:22px; opacity:0.7;" />
+        <span class="nav-logo-text" style="font-size:1rem; color:var(--c-text-sub);">Dendro</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../media.html">Media</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <p class="t-small t-dim">© 2025 Dendro Education LLC. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navWrapper');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
+</body>
+</html>
