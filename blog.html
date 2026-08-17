@@ -41,7 +41,7 @@
     /* Post grid */
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
       gap: var(--space-lg);
     }
     .blog-card {
@@ -202,58 +202,12 @@
       <div class="blog-card" style="cursor:pointer;" onclick="window.location.href='blog/deskilling.html'">
         <div class="blog-card-thumb"><span class="blog-card-thumb-icon">🧠</span></div>
         <div class="blog-card-body">
-          <span class="blog-tag">Thought leadership</span>
           <div class="blog-card-title">Is AI deskilling the next generation of doctors?</div>
           <p class="blog-card-excerpt">Deskilling is one of the most discussed objections to AI in medical education. The concern is legitimate — but the more useful question is about substitution, not AI itself.</p>
           <div class="blog-card-meta">
-            <span>The Dendro Team</span>
+            <span>Reviewed by Adam Dawer</span>
             <span class="dot">·</span>
             <span>Aug 15, 2026</span>
-          </div>
-          <span class="blog-card-readmore">Read article →</span>
-        </div>
-      </div>
-
-      <div class="blog-card" style="cursor:pointer;" onclick="window.location.href='blog/lectures-to-board-ready.html'">
-        <div class="blog-card-thumb"><span class="blog-card-thumb-icon">📚</span></div>
-        <div class="blog-card-body">
-          <span class="blog-tag">Product</span>
-          <div class="blog-card-title">Turning a wall of lectures into board-ready study material</div>
-          <p class="blog-card-excerpt">Residents don't need more content — they need the right content, in the right format, at the right time. Here's how Dendro turns hours of recorded lectures into structured questions.</p>
-          <div class="blog-card-meta">
-            <span>Jay Khurana, MD</span>
-            <span class="dot">·</span>
-            <span>Jul 28, 2026</span>
-          </div>
-          <span class="blog-card-readmore">Read article →</span>
-        </div>
-      </div>
-
-      <div class="blog-card" style="cursor:pointer;" onclick="window.location.href='blog/spaced-repetition-in-residency.html'">
-        <div class="blog-card-thumb"><span class="blog-card-thumb-icon">🔁</span></div>
-        <div class="blog-card-body">
-          <span class="blog-tag">Learning science</span>
-          <div class="blog-card-title">Why spaced repetition wins in residency</div>
-          <p class="blog-card-excerpt">The forgetting curve doesn't care how busy you are. We dig into why spacing and retrieval practice beat re-reading — and how that shaped the way Dendro schedules review.</p>
-          <div class="blog-card-meta">
-            <span>Hossam Zaki, MD</span>
-            <span class="dot">·</span>
-            <span>Jul 14, 2026</span>
-          </div>
-          <span class="blog-card-readmore">Read article →</span>
-        </div>
-      </div>
-
-      <div class="blog-card" style="cursor:pointer;" onclick="window.location.href='blog/what-we-learned-from-our-rct.html'">
-        <div class="blog-card-thumb"><span class="blog-card-thumb-icon">🧪</span></div>
-        <div class="blog-card-body">
-          <span class="blog-tag">Research</span>
-          <div class="blog-card-title">What we learned running a randomized trial in a neurology program</div>
-          <p class="blog-card-excerpt">We didn't want to claim Dendro works — we wanted to measure it. Notes from designing and running a randomized controlled trial of AI-generated study material with residents.</p>
-          <div class="blog-card-meta">
-            <span>Hossam Zaki, MD</span>
-            <span class="dot">·</span>
-            <span>Jun 30, 2026</span>
           </div>
           <span class="blog-card-readmore">Read article →</span>
         </div>
