@@ -152,6 +152,15 @@
       border-color: var(--c-green-muted);
     }
 
+    /* Press card (same card format as the videos) */
+    a.video-card { text-decoration: none; color: inherit; }
+    .video-embed-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .video-tag.press {
+      background: rgba(224,99,120,0.1);
+      color: #e8899b;
+      border: 1px solid rgba(224,99,120,0.2);
+    }
+
     /* Section label */
     .section-eyebrow {
       display: inline-flex; align-items: center; gap: 8px; margin-bottom: var(--space-md);
@@ -197,23 +206,36 @@
         <span class="t-label t-green">Media</span>
       </div>
       <h1 class="t-display anim-fade-up anim-delay-1" style="margin-bottom:var(--space-md);">See Dendro in action.</h1>
-      <p class="t-body-lg t-sub anim-fade-up anim-delay-2">Watch our Brown Venture Prize pitch, AAN research talk, and full product overview — see how Dendro turns medical lectures into structured, board-ready study materials.</p>
+      <p class="t-body-lg t-sub anim-fade-up anim-delay-2">Press coverage, our Brown Venture Prize pitch, AAN research talk, and full product overview — see how Dendro turns medical lectures into structured, board-ready study materials.</p>
     </div>
   </div>
 </div>
 
-<!-- Videos -->
+<!-- Media -->
 <section class="section">
   <div class="container">
     <div class="section-eyebrow">
       <span class="eyebrow-line"></span>
-      <span class="t-label t-green">Videos</span>
+      <span class="t-label t-green">Press &amp; video</span>
     </div>
 
     <div class="videos-grid">
 
-      <!-- Featured: BVP Pitch -->
-      <div class="video-card featured">
+      <!-- Featured: AMA press coverage -->
+      <a class="video-card featured" href="https://www.ama-assn.org/medical-students/succeed-medical-school/using-ai-study-medical-students-should-know-do-s-and-don-ts" target="_blank" rel="noopener">
+        <div class="video-embed-wrap">
+          <img src="assets/ama-article.jpg" alt="AMA — Using AI to study: Medical students should know the do's and don'ts" />
+        </div>
+        <div class="video-card-body">
+          <span class="video-tag press">Press</span>
+          <div class="video-title">Using AI to study: Medical students should know the do's and don'ts</div>
+          <p class="video-desc">The American Medical Association covered our research on structured versus undifferentiated AI use in medical education — the finding that guardrails, prompt testing, and accuracy review are what turn AI study tools into measurable learning gains.</p>
+          <p class="video-meta">By Brendan Murphy · American Medical Association · September 4, 2026</p>
+        </div>
+      </a>
+
+      <!-- BVP Pitch -->
+      <div class="video-card">
         <div class="video-embed-wrap">
           <iframe src="https://drive.google.com/file/d/1NdKzgMxPeI1DloJh_b5TFPnPQojRDpck/preview"
                   allow="autoplay; fullscreen" allowfullscreen
@@ -263,7 +285,7 @@
         <div>
           <div style="font-size:1.5rem; margin-bottom:12px; color:var(--c-text-dim);">+</div>
           <div class="t-small t-sub" style="font-weight:600;">More media coming soon</div>
-          <p class="t-small t-dim" style="margin-top:4px;">Press coverage, conference talks, and case studies</p>
+          <p class="t-small t-dim" style="margin-top:4px;">Conference talks and program case studies</p>
         </div>
       </div>
 
