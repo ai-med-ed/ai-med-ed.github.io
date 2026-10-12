@@ -57,28 +57,6 @@
       border-color: var(--c-green-muted);
       transform: translateY(-2px);
     }
-    .blog-card-thumb {
-      aspect-ratio: 16/10;
-      background: linear-gradient(135deg, var(--c-bg3) 0%, var(--c-surface) 100%);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--c-border-sub);
-    }
-    .blog-card-thumb::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 200px; height: 200px;
-      background: radial-gradient(ellipse, rgba(168,224,99,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .blog-card-thumb-icon {
-      font-size: 2.4rem;
-      opacity: 0.9;
-    }
     .blog-card-body {
       padding: var(--space-lg);
       display: flex;
@@ -201,7 +179,6 @@
     <div class="blog-grid">
 
       <div class="blog-card" style="cursor:pointer;" onclick="window.location.href='blog/deskilling.html'">
-        <div class="blog-card-thumb"><span class="blog-card-thumb-icon">🧠</span></div>
         <div class="blog-card-body">
           <div class="blog-card-title">Is AI deskilling the next generation of doctors?</div>
           <p class="blog-card-excerpt">Deskilling is one of the most discussed objections to AI in medical education. The concern is legitimate — but the more useful question is about substitution, not AI itself.</p>
