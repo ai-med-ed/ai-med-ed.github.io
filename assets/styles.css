@@ -319,3 +319,8 @@ a { color: inherit; text-decoration: none; }
   .section { padding: var(--space-2xl) 0; }
   .t-display { font-size: 2.2rem; }
 }
+@media (max-width: 600px) {
+  /* Keep nav and footer inside a phone viewport (no horizontal scroll). */
+  .nav .btn-secondary { display: none; }
+  .footer-links { flex-wrap: wrap; gap: var(--space-sm) var(--space-md); }
+}
