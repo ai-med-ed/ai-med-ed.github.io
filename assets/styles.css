@@ -320,7 +320,12 @@ a { color: inherit; text-decoration: none; }
   .t-display { font-size: 2.2rem; }
 }
 @media (max-width: 600px) {
-  /* Keep nav and footer inside a phone viewport (no horizontal scroll). */
-  .nav .btn-secondary { display: none; }
+  /* Phone width: compact nav buttons so Sign in stays visible without horizontal scroll. */
+  .nav .btn { padding: 8px 12px !important; font-size: 0.8rem !important; }
+  .nav > div { gap: 6px !important; }
   .footer-links { flex-wrap: wrap; gap: var(--space-sm) var(--space-md); }
+}
+@media (max-width: 380px) {
+  /* Smallest phones: drop the wordmark (logo stays) to make room for both nav buttons. */
+  .nav .nav-logo-text { display: none; }
 }
