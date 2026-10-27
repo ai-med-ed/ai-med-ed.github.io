@@ -143,6 +143,8 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 10px;
 }
+/* Logo and buttons never shrink, so a crowded nav can't squeeze the wordmark under the links. */
+.nav-logo, .nav > div { flex-shrink: 0; }
 .nav-logo img { width: 28px; height: 28px; }
 .nav-logo-text {
   font-family: var(--font-display);
@@ -161,6 +163,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--c-text-sub);
+  white-space: nowrap;
   transition: color var(--t-fast);
 }
 .nav-links a:hover { color: var(--c-text); }
@@ -312,6 +315,14 @@ a { color: inherit; text-decoration: none; }
 .anim-delay-4  { animation-delay: 500ms; }
 
 /* ── Responsive ── */
+/* Tablet widths: these pages have no menu button, so tighten the nav to keep every link on one line. */
+@media (max-width: 1024px) {
+  .nav-links { gap: var(--space-md); }
+}
+@media (max-width: 900px) {
+  .nav { padding-left: var(--space-md); padding-right: var(--space-md); }
+  .nav-links { gap: calc(var(--space-sm) + var(--space-xs)); }
+}
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-mobile-toggle { display: flex; }
